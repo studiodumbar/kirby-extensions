@@ -1,0 +1,89 @@
+# ----------------------------------------------------------------------
+# Always-ignore extensions (incl. OS or editor folders/files)
+# ----------------------------------------------------------------------
+
+*~
+*.diff
+*.css.map
+*.esproj
+*.err
+*.log
+*.orig
+*.rej
+*.sass-cache
+*.sublime-project
+*.sublime-workspace
+*.swo
+*.swp
+*.vi
+
+._*
+.buildpath
+.cache
+.com.apple*
+.CVS
+.dropbox
+.DS_Store
+.hg
+.idea
+.project
+.settings
+.svn
+.tmp
+.tmproj
+.tm_properties
+
+intermediate
+publish
+Thumbs.db
+
+
+# ----------------------------------------------------------------------
+# Ignore grunt workflow folders/files
+# ----------------------------------------------------------------------
+
+# Node Modules
+node_modules
+npm-debug.log
+
+# Styles
+assets/stylesheets/dev/*.css
+
+# Scripts
+assets/javascript/dev/*.js
+
+# Grunticon
+assets/stylesheets/scss/grunticon/preview.html
+assets/stylesheets/scss/grunticon/grunticon.loader.txt
+
+
+# ----------------------------------------------------------------------
+# Ignore project folders/files
+# ----------------------------------------------------------------------
+
+#temp/**/*
+#design/**/*
+
+
+# ----------------------------------------------------------------------
+# Ignore Kirby CMS folders/files
+# ----------------------------------------------------------------------
+
+site/cache/*
+!site/cache/.gitkeep
+
+site/config/config.*.xip.io.php
+
+#kirby
+#panel
+#site/panel
+
+thumbs/*
+!thumbs/.gitkeep
+
+
+# ----------------------------------------------------------------------
+# Ignore content folder (separate repository and/or submodule)
+# ----------------------------------------------------------------------
+
+# content

@@ -1,0 +1,57 @@
+# Automatically detect and normalize all text files (convert CRLF to LF; end-of-line conversion)
+*                    text=auto
+
+# Normalize markdown (text) files (convert CRLF to LF)
+*.md                 text
+*.mdown              text
+*.markdown           text
+
+# Images should be treated as binary (don't apply end-of-line conversions)
+*.png                binary
+*.jpg                binary
+
+# Exclude files from export (when using 'git archive' or Tower 'export')
+
+# Git
+.gitignore           export-ignore
+.gitattributes       export-ignore
+.gitmodules          export-ignore
+
+# Grunt
+gruntfile.js         export-ignore
+package.json         export-ignore
+.jshintrc            export-ignore
+grunt/               export-ignore
+node_modules/        export-ignore
+
+# Editor
+.editorconfig        export-ignore
+
+# Readme (text files)
+# readme.txt           export-ignore
+# readme.html          export-ignore
+# readme.md            export-ignore
+# readme.mdown         export-ignore
+# readme.markdown      export-ignore
+
+# Apache (ignore with nginx)
+# .htaccess            export-ignore
+
+# Folders
+design/              export-ignore
+# content/             export-ignore
+
+# JavaScript files and folders
+assets/javascript/head.scripts.js           export-ignore
+assets/javascript/main.scripts.js           export-ignore
+assets/javascript/mobile.scripts.js         export-ignore
+assets/javascript/classes/                  export-ignore
+assets/javascript/dev/                      export-ignore
+assets/javascript/plugins/                  export-ignore
+assets/javascript/polyfills/                export-ignore
+assets/javascript/utils/                    export-ignore
+assets/javascript/vendor/                   export-ignore
+
+# Stylesheet files and folders
+assets/stylesheets/dev/                     export-ignore
+assets/stylesheets/scss/                    export-ignore
