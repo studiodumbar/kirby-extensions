@@ -7,15 +7,17 @@
  * @version 1.0.1
  */
 
-function titlecase($text) {
-	$titlecase = new titlecase($text);
-	return $titlecase->replace();
-}
-
+// Field method
 field::$methods['titlecase'] = function($field) {
 	$field->value = titlecase($field);
 	return $field;
 };
+
+// Convert a string to Titel Case
+function titlecase($text) {
+	$titlecase = new titlecase($text);
+	return $titlecase->replace();
+}
 
 class titlecase {
 
