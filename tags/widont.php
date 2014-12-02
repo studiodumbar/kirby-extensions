@@ -2,13 +2,14 @@
 /**
  * Widont
  * ----
- * Use widont function from kirby toolkit helpers (based on str::widont)
+ * Remove widows from text string.
  *
  * What it does:
- * If text contains more than 3 spaces, replace last space by a &nbsp:
+ * Replaces last space by a non-breaking-space (e.g. `&nbsp;`).
+ * Uses Kirby toolkit's widont helper function (based on str::widont)
  *
  * Usage:
- * (widont: dit is een hele lange titel)
+ * (widont: This is a title without widows)
  */
 
 kirbytext::$tags['widont'] = array(

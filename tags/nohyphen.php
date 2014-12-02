@@ -2,12 +2,16 @@
 /**
  * No hyphen
  * ----
+ * No hyphenation.
  *
  * What it does:
- * Wraps the passed text in a span with class .no-hyphen
+ * Wraps a text string in a <span> tag with class `no-hyphen`.
  *
  * Usage:
  * (nohyphen: CompanyName)
+ *
+ * Example:
+ * http://altair.studiodumbar.com/base#paragraph
  */
 
 kirbytext::$tags['nohyphen'] = array(

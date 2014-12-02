@@ -2,13 +2,18 @@
 /**
  * Quote
  * ----
- * Adds an inline quote tag.
+ * Inline quotation with language locale.
  *
  * What it does:
- * Wraps the text in <q> tag, with appropriate classes and language attribute
+ * Wraps  passed text string in <q> tag, with class `Quote`
+ * and passed or oterhwise default language attribute.
  *
  * Usage:
+ * (quote: This is an English inline quote)
  * (quote: This is an English inline quote lang: en)
+ *
+ * Example:
+ * http://altair.studiodumbar.com/base#paragraph
  */
 
 kirbytext::$tags['quote'] = array(

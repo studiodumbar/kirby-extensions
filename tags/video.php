@@ -2,7 +2,7 @@
 /**
  * Video
  * ----
- * A generic tag to embed video's
+ * A generic tag to embed video's.
  *
  * What it does:
  * Embeds youtube or vimeo video in a fluid embed.

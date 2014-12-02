@@ -2,16 +2,21 @@
 /**
  * Blockquote
  * ----
- * Adds a blockquote, wrapped by a figure with optional caption.
+ * Blockquote tag, wrapped in a figure with optional (fig)caption.
  *
  * What it does:
- * Generates markup based on A List Apart's article: http://j.mp/1oRDK9x, http://j.mp/1h7RLbF
- * The <cite> tag is not meant for people's names; according to the spec, it is only for works (not people)!
+ * Generates markup based on A List Apart's article example code:
+ * http://j.mp/1oRDK9x, http://j.mp/1h7RLbF
+ * Good to know: the <cite> tag is not meant for people's names.
+ * According to the spec, it is only for works (not people)!
  *
  * Usage:
  * 1) (blockquote: Tomorrow is another day. attribution: Scarlett O'Hara in Margaret Mitchell's cite: Gone with the Wind)
  * 2) (blockquote: I'm going to make him an offer he can't refuse. attribution: Don Vito Corleone's famous line in cite: The Godfather link: http://www.imdb.com/title/tt0068646/)
  * 3) (blockquote: Bij fotografie is zien belangrijker dan de tools. lang: nl attribution: Jonathan van Wunnik)
+ *
+ * Example:
+ * http://altair.studiodumbar.com/base#blockquote
  */
 
 kirbytext::$tags['blockquote'] = array(

@@ -2,14 +2,20 @@
 /**
  * Thumb
  * ----
- *
+ * (Cropped) thumb generation.
  *
  * What it does:
- *
+ * Generates a thumb image in a <figure> tag.
  *
  * Usage:
+ * (thumb: image.jpg width: 225 height: 225 alt: Just a thumb)
+ * (thumb: image.jpg width: 225 height: 225 quality: 75 alt: Thumb with quality 75)
+ * (thumb: image.jpg width: 400 height: 250 crop: true alt: Thumb cropped)
  *
+ * Example:
+ * http://altair.studiodumbar.com/images
  */
+
 kirbytext::$tags['thumb'] = array(
 	'attr' => array(
 		'width',

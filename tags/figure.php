@@ -2,12 +2,12 @@
 /**
  * Figure
  * ----
- * Custom (multi)figure tag in kirbytext
+ * Custom (multi) figure tag
  *
  * What it does:
- * Generates an image in a figure, with a lot of possible options. Multiple images
- * within a figure is one of the possibilities. Use a 'relative' width (i.e. 1of3)
- * for responsive widths.
+ * Generates an image wrapped in a <figure> tag, with a lot of additional
+ * options. Among other things multiple images within one figure tag, the use
+ * of a 'relative' width (i.e. 1of3 or 1of4) for responsive images.
  *
  * Usage:
  * 1) (figure: myimage.jpg width: 1of3)
@@ -16,6 +16,9 @@
  * 4) (figure: myimage.jpg width: 2of3 height: 200 crop: true caption: Nice figure caption!)
  * 5) (figure: myimage.jpg width: width: 2of3 align: center)
  * 6) (figure: myimage1.jpg | myimage2.jpg | myimage3.jpg width: 1of3 | 1of3 | 1of3 break: medium gutter: percentage)
+ *
+ * Example page:
+ * http://altair.studiodumbar.com/images
  */
 
 kirbytext::$tags['figure'] = array(
