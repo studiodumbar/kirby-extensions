@@ -1,10 +1,12 @@
-# Figure Plugin
+# Figure plugin
 
-This is a plugin for [Kirby](http://getkirby.com/) that generates an image in a figure, with a lot of possible options. Cropratio, alt-tag or (optinionated) lazyload are one of the many possibilities.
+A plugin for [Kirby CMS](http://getkirby.com) that generates an image in a figure tag, with a lot of options: among others crop ratio, alt-tag and (an opinionated) lazyload setting.
 
 ## Installation
 
 Put the `figure` folder in `/site/plugins`.
+
+Update the contents of the included `template.php` file to your likings and setup.
 
 ## How to use it
 
@@ -12,27 +14,36 @@ You can use this in a template file.
 
 ## Example usage
 
-Example snippet embed codes:
+### Snippets
 
-````
-echo figure($page->images()->first());
+```php
+<?php echo figure($page->images()->first()); ?>
+```
 
-echo figure($page->images()->first(), array(
-	'cropratio'  => '2/3'
-));
+or…
 
-echo figure($page->images()->first(), array(
-	'crop'       => true,
-	'cropratio'  => '.5',
-	'class'      => 'Image Image--left',
-	'alt'        => $page->title()->smartypants(),
-	'caption'    => 'A beautiful image of trees'
-	'lazyload'   => false
-));
+```php
+<?php echo figure($page->images()->first(), array('cropratio' => 2/3’)); ?>
+```
 
-````
+or…
 
-Check out the $defaults array in figure.php for more options.
+```php
+<?php
+	echo figure($page->images()->first(), array(
+		'crop'       => true,
+		'cropratio'  => '.5',
+		'class'      => 'Image Image--left',
+		'alt'        => $page->title()->smartypants(),
+		'caption'    => 'A beautiful image of trees'
+		'lazyload'   => false
+	));
+?>
+```
+
+### Options
+
+Check out the `$defaults` array in `figure.php` for more options.
 
 ## Author
 

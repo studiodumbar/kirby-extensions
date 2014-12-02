@@ -1,20 +1,31 @@
-# Titlecase plugin 1.0.1
+# Titlecase plugin
 
-## What is it?
-
- A script to Title Case text, based on Camen Design's PHP script: http://camendesign.com/code/title-case (originally a John Gruber Perl script )
+A field method for [Kirby CMS](http://getkirby.com) to convert text to Title Case.
 
 ## How to use it?
 
 Call from template:
 
-	<?php echo titlecase('Resulting in a Cool Title Case Title'); ?>
+```php
+<?php echo titlecase('Resulting in a Cool Title Case Title'); ?>
+```
+
+or…
+
+```php
+<?php echo $site->title()->smartypants()->titlecase(); ?>
+```
 
 ## Authors
+
 Marijn Tijhuis, Jonathan van Wunnik
 <http://www.studiodumbar.com>
 
+## Credits
+
+Credits go to Camen Design’s [PHP Title Case script](http://camendesign.com/code/title-case) (what was originally a John Gruber Perl script).
+
 ## Changelog
 
-* **1.0.1** Add field method (`$page->title()->smartypants()->titlecase();`)
-* **1.0.0** Initial version of titlecase plugin
+* **1.0.1** Add field method
+* **1.0.0** Initial release
