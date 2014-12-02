@@ -7,6 +7,13 @@
  * @version 1.0.0
  */
 
+// Field method
+field::$methods['tagslug'] = function($field) {
+	$field->value = tagslug($field);
+	return $field;
+};
+
+// Convert tag name to slug (url)
 function tagslug($text){
 	// replace & by -and-
 	$text = str_replace('&', '-and-', $text);
