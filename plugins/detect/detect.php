@@ -8,8 +8,8 @@
  * @version 2.0.0
  */
 
-// Include/load the Mobile_Detect.php script
-include_once('Mobile_Detect.php');
+// Load the Mobile_Detect.php script
+if (!class_exists('device_class')) require_once('lib/Mobile_Detect.php');
 
 // Now create a new mobile detect class
 $detect = new Mobile_Detect();
