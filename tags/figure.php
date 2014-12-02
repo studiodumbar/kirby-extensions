@@ -15,7 +15,7 @@
  * 3) (figure: myimage.jpg griditem: true caption: Single image in a multifigure grid)
  * 4) (figure: myimage.jpg width: 2of3 height: 200 crop: true caption: Nice figure caption!)
  * 5) (figure: myimage.jpg width: width: 2of3 align: center)
- * 6) (figure: myimage1.jpg | myimage2.jpg | myimage3.jpg width: 1of3 | 1of3 | 1of3 break: compact)
+ * 6) (figure: myimage1.jpg | myimage2.jpg | myimage3.jpg width: 1of3 | 1of3 | 1of3 break: medium gutter: percentage)
  */
 
 kirbytext::$tags['figure'] = array(
@@ -31,6 +31,7 @@ kirbytext::$tags['figure'] = array(
 		'quality',
 		// CSS class setting
 		'break',
+		'gutter',
 		'align',
 		'griditem',
 		// Single figure specific
@@ -67,7 +68,8 @@ kirbytext::$tags['figure'] = array(
 		$upscale    = $tag->attr('upscale');
 		$quality    = $tag->attr('quality', c::get('thumb.quality', 100));
 		$caption    = $tag->attr('caption');
-		$break      = $tag->attr('break', c::get('thumb.multifigure.break', 'small'));
+		$break      = $tag->attr('break', c::get('figureimage.break', 'small'));
+		$gutter     = $tag->attr('gutter', c::get('figureimage.gutter', 'default'));
 		$offset     = $tag->attr('offset');
 		$align      = $tag->attr('align');
 		$griditem   = $tag->attr('griditem');
@@ -76,6 +78,7 @@ kirbytext::$tags['figure'] = array(
 		$cropratio  = $tag->attr('cropratio');
 		$height     = $tag->attr('height');
 
+		// Get width of image(s)
 		if($is_multifigure) {
 			$widths = str::split(str_replace(' ', '', $tag->attr('width')), '|');
 		}
@@ -84,14 +87,22 @@ kirbytext::$tags['figure'] = array(
 			if (empty($widths)) $widths = null;
 		}
 
-		// Set classes used in Grid div markup
-		if(count($imageresult) > 1 || isset($griditem)) {
-			$gridclass = ' Grid Grid--withGutterPercentage';
+		// Set classes used in layout grid
+		if(count($imageresult) > 1 || $tag->attr('gutter') || isset($griditem)) {
+			$gridclass = ' Grid Grid--withGutter' . (($gutter == 'percentage') ? 'Percentage' : '');
 			$gridcellclass = 'Grid-cell ';
 		}
 		else {
 			$gridclass = '';
 			$gridcellclass = '';
+		}
+
+		// Set break class used in layout grid
+		if(count($imageresult) > 1) {
+			$breakclass = ' Grid--breakFrom'.ucfirst($break);
+		}
+		else {
+			$breakclass = '';
 		}
 
 		// Set possible align classes
@@ -104,7 +115,7 @@ kirbytext::$tags['figure'] = array(
 
 		// Add figure DOM element with appended classes
 		$figure = new Brick('figure');
-		$figure->addClass('FigureImage'.$gridclass.$alignclass);
+		$figure->addClass('FigureImage' . $gridclass . $breakclass . $alignclass);
 
 		// If feed/rss page, lazyload is always disable
 		if(kirby()->request()->path()->last() == 'feed') {
@@ -115,6 +126,7 @@ kirbytext::$tags['figure'] = array(
 			$lazyload = c::get('lazyload', false);
 		}
 
+		// Create markup for every image
 		$i = 0;
 		foreach($imageresult as $image) {
 
@@ -264,7 +276,7 @@ kirbytext::$tags['figure'] = array(
 
 			}
 
-			// Initialize markup, depending on lazyload or not
+			// Output different markup, depending on lazyload or not
 			if($lazyload == true) {
 				$lazydiv->append($imagethumb);
 				if(isset($griddiv)) {
@@ -283,8 +295,15 @@ kirbytext::$tags['figure'] = array(
 
 		}
 
+		// Add caption
 		if(!empty($caption)) {
-			$figure->append('<figcaption class="FigureImage-caption">' . kirbytext($caption) . '</figcaption>');
+			// Also add break class to figcaption if alignment is set to image
+			if(count($widths) > 0 && isset($align)) {
+				$figure->append('<figcaption class="FigureImage-caption u-size' . $width . '--' . $break  . '">' . kirbytext($caption) . '</figcaption>');
+			}
+			else {
+				$figure->append('<figcaption class="FigureImage-caption">' . kirbytext($caption) . '</figcaption>');
+			}
 		}
 
 		return $figure;
