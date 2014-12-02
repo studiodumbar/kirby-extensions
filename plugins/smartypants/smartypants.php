@@ -7,9 +7,11 @@
  * @version 1.0.0
  */
 
-field::$methods['smartypants'] = function($field) {
-	$field->value = smartypants($field);
-	return $field;
-};
+if($this->options['smartypants']) {
+	field::$methods['smartypants'] = function($field) {
+		$field->value = smartypants($field);
+		return $field;
+	};
+}
 
 ?>
