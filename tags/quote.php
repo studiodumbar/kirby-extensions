@@ -23,9 +23,15 @@ kirbytext::$tags['quote'] = array(
 	'html' => function($tag) {
 
 		$text = $tag->attr('quote');
-		$lang = $tag->attr('lang', c::get('lang.default', 'en'));
 
-		return '<q class="Quote" lang="' . $lang . '">' . $text . '</q>';
+		if($tag->attr('lang')) {
+			$language_locale = $tag->attr('lang');
+		}
+		else {
+			$language_locale = 'en'; // Fallback language locale if no is passed, e.g. 'en, nl_NL', 'de_DE', ect.
+		}
+
+		return '<q class="Quote" lang="' . $language_locale . '">' . $text . '</q>';
 
 	}
 );
