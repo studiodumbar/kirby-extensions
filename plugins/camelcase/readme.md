@@ -1,4 +1,4 @@
-# CamelCase plugin
+# camelCase plugin
 
 A plugin for [Kirby CMS](http://getkirby.com) to convert text to camelCase.
 
