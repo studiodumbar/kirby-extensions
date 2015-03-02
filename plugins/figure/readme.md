@@ -35,7 +35,7 @@ or…
 		'cropratio'  => '.5',
 		'class'      => 'Image Image--left',
 		'alt'        => $page->title()->smartypants(),
-		'caption'    => 'A beautiful image of trees'
+		'caption'    => 'A beautiful image of trees',
 		'lazyload'   => false
 	));
 ?>
