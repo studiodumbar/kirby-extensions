@@ -37,8 +37,11 @@ Pages::$methods['feed'] = function($pages, $params = array()) {
 	// fetch the modification date
 	if($options['datefield'] == 'modified') {
 		$options['modified'] = $items->first()->modified();
-	} else {
+	} else if( $items->count() > 0 ) {
 		$options['modified'] = $items->first()->date(false, $options['datefield']);
+	} else {
+		// there are no items in this feed
+		// so keep the default modification date
 	}
 
 	// send the xml header
