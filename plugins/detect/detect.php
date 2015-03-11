@@ -21,8 +21,11 @@ s::start();
 if($detect->isMobile() && !$detect->isTablet()) {
 	s::set('device_class', 'mobile');
 }
+// elseif($detect->isTablet()) {
+// 	s::set('device_class', 'tablet');
+// }
 else {
-	s::set('device_class', 'desktop'); // if (mobile) device can't be detected, assume it's desktop
+	s::set('device_class', 'desktop'); // if device class can't be detected, assume it's desktop
 }
 
 // Load the device pecific template snippets
