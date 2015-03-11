@@ -5,22 +5,22 @@ class Event {
 	/**
 	 * The string for the beginning date field key of an event.
 	 */
-	const beginDateKey = '_beginDate';
+	const beginDateKey = '_begin_date';
 
 	/**
 	 * The string for the beginning time field key of an event.
 	 */
-	const beginTimeKey = '_beginTime';
+	const beginTimeKey = '_begin_time';
 
 	/**
 	 * The string for the end date field key of an event.
 	 */
-	const endDateKey = '_endDate';
+	const endDateKey = '_end_date';
 
 	/**
 	 * The string for the end time field key of an event.
 	 */
-	const endTimeKey = '_endTime';
+	const endTimeKey = '_end_time';
 
 	/**
 	 * An array of field keys that are required to create an event.
@@ -66,15 +66,15 @@ class Event {
 
 	/**
 	 * @param array $event The fields of this event including the 'private'
-	 * fields which start with a <code>_</code> (e.g. <code>_beginDate</code>).
+	 * fields which start with a <code>_</code> (e.g. <code>_begin_date</code>).
 	 */
 	function __construct($event) {
 		self::validate($event);
 
 		$this->hasEnd = true;
 
-		$this->hasBeginTime = !empty(a::get($event, self::beginTimeKey));
-		$this->hasEndTime = !empty(a::get($event, self::endTimeKey));
+		$this->hasBeginTime = (bool) a::get($event, self::beginTimeKey);
+		$this->hasEndTime = (bool) a::get($event, self::endTimeKey);
 
 		$this->beginTimestamp = self::getTimestamp(
 			a::get($event, self::beginDateKey),
@@ -157,7 +157,7 @@ class Event {
 	 */
 	private static function validate($event) {
 		$missingKeys = a::missing($event, self::$requiredKeys);
-		if (!empty($missingKeys)) {
+		if ($missingKeys) {
 			$message = "Event creation failed because of the following missing " .
 				"required fields:\n" . a::show($missingKeys, false);
 			throw new Exception($message, 1);
@@ -242,7 +242,7 @@ class Event {
 		/*
 		 * The convention for an event lasting all day is from midnight of the
 		 * day to midnight of the following day. But if we have an event lasting
-		 * from the 14th to 15th it would be printed as 14th (12 am) to 16th 
+		 * from the 14th to 15th it would be printed as 14th (12 am) to 16th
 		 * (12 am).
 		 * So if there is no custom ending time given, we go one second back, so
 		 * it prints as 14th (12 am) to 15th (11:59:59 pm).
