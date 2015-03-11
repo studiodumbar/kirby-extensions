@@ -1,6 +1,6 @@
 # Detect plugin
 
-A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets based on the detected device class, e.g. mobile or desktop (tablet is possible too, but disabled by default).
+A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets based on the detected device class, e.g. mobile or desktop (tablet device class detection is possible too, but disabled by default, read below).
 
 ## How to use it?
 
@@ -23,6 +23,18 @@ A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets
 	This is only displayed on mobile…
 <?php endif; ?>
 ```
+
+### Tablet device class detection
+
+To enable tablet (besides mobile) device class detection, find and out-comment the following lines in the `detect.php` file:
+
+```php
+elseif($detect->isTablet()) {
+  s::set(‘device_class’, ‘tablet’);
+}
+```
+
+Now make sure you also have tablet device specific snippets by adding the ‘.tablet’ postfix to the snippet file name (e.g. html_head.tablet.php).
 
 ## Author(s)
 Jonathan van Wunnik, Marijn Tijhuis
