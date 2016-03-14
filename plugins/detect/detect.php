@@ -9,7 +9,7 @@
  */
 
 // Load the Mobile_Detect.php script
-if (!class_exists('device_class')) require_once('lib/Mobile_Detect.php');
+if (!class_exists('Mobile_Detect')) require_once('lib/Mobile_Detect.php');
 
 // Now create a new mobile detect class
 $detect = new Mobile_Detect();
