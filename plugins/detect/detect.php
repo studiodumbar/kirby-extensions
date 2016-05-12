@@ -9,7 +9,7 @@
  */
 
 // Load the Mobile_Detect.php script
-if (!class_exists('Mobile_Detect')) require_once('lib/Mobile_Detect.php');
+if(!class_exists('Mobile_Detect')) require_once('lib/Mobile_Detect.php');
 
 // Now create a new mobile detect class
 $detect = new Mobile_Detect();
@@ -36,7 +36,7 @@ function snippet_detect($file, $data = array(), $return = false) {
 	$device_class = s::get('device_class', 'mobile');
 
 	// Embed the device class specific snippet
-	if ($device_class == 'mobile') {
+	if($device_class == 'mobile') {
 		// Embed the mobile snippet (`mobile` is the default snippet, without the device specific `.postfix`, e.g. footer.php)
 		return tpl::load(kirby::instance()->roots()->snippets() . DS . $file . '.php', $data, $return);
 	} else {

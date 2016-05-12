@@ -1,11 +1,11 @@
 # Detect plugin
 
-A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets based on the detected device class, e.g. mobile or desktop (tablet device class detection is possible too, but disabled by default, read below).
+A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets based on the detected device class, e.g. mobile or desktop (tablet is possible too, but disabled by default).
 
 ## How to use it?
 
 * First add the `detect` folder to your `/site/plugins` directory.
-* Create device specific snippets by adding the ‘.desktop’ postfix to snippets in the `/snippets` folder (e.g. html_head.desktop.php)
+* Create device specific snippets by adding the `.desktop` postfix to snippets in the `/snippets` folder (e.g. html_head.desktop.php)
 * Include the device-specific snippet:
 
 ```php
@@ -16,11 +16,11 @@ A plugin for [Kirby CMS](http://getkirby.com) to load a device specific snippets
 
 ```php
 <?php if(s::get('device_class') == 'desktop'): ?>
-	This is only displayed on desktop…
+  This is only displayed on desktop.
 <?php endif; ?>
 
 <?php if(s::get('device_class') == 'mobile'): ?>
-	This is only displayed on mobile…
+  This is only displayed on mobile.
 <?php endif; ?>
 ```
 
@@ -30,11 +30,11 @@ To enable tablet (besides mobile) device class detection, find and out-comment t
 
 ```php
 elseif($detect->isTablet()) {
-  s::set(‘device_class’, ‘tablet’);
+  s::set('device_class', 'tablet');
 }
 ```
 
-Now make sure you also have tablet device specific snippets by adding the ‘.tablet’ postfix to the snippet file name (e.g. html_head.tablet.php).
+Now make sure there are tablet device specific snippets by adding the `.tablet` postfix to the snippet file name (e.g. `html_head.tablet.php`).
 
 ## Author(s)
 Jonathan van Wunnik, Marijn Tijhuis
